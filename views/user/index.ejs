@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR Ecommerce Site</title>
+<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'><link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="/user/css/usertem.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body style="background: #FDFBD0">
+  <div class="container">
+    <%- include('./header.ejs') %>    
+
+    <%- include('./topbox.ejs') %>   
+
+    <section id="products">
+      <div class="row">
+      <% userproduct.reverse().map((data, index)=> {%>
+        <div class="col-md-4">
+          <div class="card productcard">
+            <img src="/productimage/<%= data.productlimg %>" style="width:100%; height:250px">
+            <div class="card-body">
+              <div class="caption">
+                <div class="caption-top">
+                  <h5 class="float-right badge-success p-1">
+                    ৳<%= data.productprice %>
+                  </h5>
+                  <h5>
+                    <a href="#"><%= data.catagorytype %></a>
+                  </h5>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim</p>
+                <a href="singleproductview/<%= data._id%>" class="btn btn-primary">View</a>
+              </div>
+            </div>
+            <div class="card-footer" style="background: #BDCCF5; color: #F96702">
+              <div class="ratings">
+                <p class="float-right">-15 Reviews</p>
+                <p>
+                  <span class="far fa-star"></span>
+                  <span class="far fa-star"></span>
+                  <span class="far fa-star"></span>
+                  <span class="far fa-star"></span>
+                  <span class="far fa-star"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }) %>      
+      </div>
+    </section>
+  </div>
+
+<%- include('./fooder.ejs') %>
+
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>

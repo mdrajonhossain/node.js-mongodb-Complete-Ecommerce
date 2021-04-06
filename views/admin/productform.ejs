@@ -1,0 +1,104 @@
+
+
+<form action="/Adminst/postproduct" method="post" enctype="multipart/form-data">
+
+<div class="row">
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">Catagory Type</label>
+    <select class="form-control" name="catagorytype">
+      <option>Please Select</option>
+    <% user.map((data) => {%>
+      <option><%= data.catagoryname %></option>
+    <% })%>
+    </select>
+  </div>      
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Name</label>
+    <input type="text" class="form-control" name="productname" aria-describedby="emailHelp" placeholder="Product Name">    
+  </div>
+    </div>
+
+
+  <div class="col">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Stock Quantity</label>
+    <input type="number" class="form-control" value="1" name="stockquantity" aria-describedby="emailHelp">    
+  </div>
+</div>
+
+
+ <div class="col">
+     <div class="form-group">
+    <label for="exampleFormControlSelect1">Product Size</label>
+    <select class="form-control" name="productsize">
+      <option>Please Select</option>
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Larg</option>
+    </select>
+  </div>
+  </div>
+
+
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Color</label>
+    <input type="text" class="form-control" name="productcolor" aria-describedby="emailHelp" placeholder="Product_color">    
+  </div>
+    </div>
+
+<div class="row">
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Price</label>
+    <input type="number" class="form-control" value="1" name="productprice" aria-describedby="emailHelp">    
+  </div>
+    </div>
+     
+  <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Small Image</label>
+    <input type="file" class="form-control" name="productsimg" aria-describedby="emailHelp">
+  </div>
+    </div> 
+
+
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Medium Image</label>
+    <input type="file" class="form-control" name="productmimg" aria-describedby="emailHelp">
+  </div>
+    </div> 
+
+    <div class="col">
+      <div class="form-group">
+    <label for="exampleInputEmail1">Product Large Image</label>
+    <input type="file" class="form-control" productlimg aria-describedby="emailHelp" name="productlimg">
+  </div>
+    </div> 
+
+ 
+
+  <div class="col">
+     <div class="">
+    <label for="exampleFormControlSelect1">Product Show</label>
+    <select class="form-control" name="productshow">      
+      <option>Show</option>
+      <option>Hide</option>      
+    </select>
+  </div>
+  </div>
+
+
+<div class="">
+    <label for="exampleFormControlTextarea1">Product Description</label>
+    <textarea class="form-control" name="productdescription" rows="3"></textarea>
+  </div>
+ 
+ <br/>
+  <button type="submit" class="btn btn-primary productSubmit">Save</button>
+</form>

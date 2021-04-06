@@ -1,0 +1,66 @@
+
+    <header class="navbar-light py-4">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12 align-self-end">
+          <h1 class="ml-1 logo">
+            <i class="fa fa-tags text-primary"></i>MR  
+            <span class="text-primary">Store</span>
+          </h1>
+          <p class="ml-5 subtext">Dhaka, Bangladesh 1000.</p>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12 align-self-center ">
+                   
+         <% if(0!=0){%>
+
+         <% }else{%>
+            <%- include('./userlogin.ejs') %>   
+         <% }%>
+
+        </div>
+      </div>
+    </header>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-3">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div id="navbarSupportedContent" class="navbar-collapse collapse justify-content-between">
+          <ul class="nav navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mobile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Drass</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Account</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav" href="/usaddcard">
+            <form class="form-inline" action="">
+              <div class="form-group mx-2 addcardicon" >                
+              <a href="/usaddcard">
+                <img src="https://icons.iconarchive.com/icons/jozef89/services-flat/512/ecommerce-icon.png" alt="Girl in a jacket" width="40" height="40"></a>
+              </div>
+                <span class="text-warning rounded-circle"><h4 id="productcount">0</h4></span>
+            </form>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+<script>
+setInterval(function(){   
+  const product_count = JSON.parse(localStorage.getItem("productorder"))
+  document.getElementById("productcount").innerHTML = product_count.length;
+
+},100);
+
+ 
+</script>

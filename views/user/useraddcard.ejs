@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR Ecommerce Site</title>
+<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'><link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="/user/css/usertem.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body style="background: #FDFBD0">
+  <div class="container">
+    <%- include('./header.ejs') %>    
+
+<div class="container-fluid useraddcardbody">
+  <div class="row">
+     <div class="col-md-3"></div>
+     <div class="col-md-9">
+       <table class="table" id="img">
+        <thead class="thead-dark">
+          <tr>            
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+      </table>
+ 
+ <div id="name"></div>
+
+
+
+
+      <button class="btn btn-lg" style="background: #f57224; margin-top: 20px" onclick="addcared()">
+          Checkout
+      </button>
+  </div>    
+</div>
+</div>
+
+  
+ 
+<script>
+  $(document).ready(function(){
+      JSON.parse(localStorage.getItem("productorder")).map((dta, index)=> {    
+        $("#img").append('<tr><td>'+dta.productname+'</td><td>'+dta.price+'</td><td>'+dta.quantity+'</td><td>'+dta.total+'</td><td><button class="btn btn-danger delte" ide='+index+' onclick="dit()">Delete</button></td></tr>');
+      })  
+  }); 
+
+function addcared(){
+  alert("sadfasdf");
+}
+
+function dit(){
+  alert("asdfsfd");
+}
+
+const productorder = JSON.parse(localStorage.getItem("productorder") || "[]");
+
+
+const data = productorder.map(dta => {
+  return (dta.productname, dta.price)
+})
+
+document.getElementById("name").innerHTML = data;
+console.log(productorder);
+
+
+// function show(data) {
+//     let tab = 
+//         `<tr>
+//           <th>Name</th>
+//           <th>Office</th>
+//           <th>Position</th>
+//           <th>Salary</th>
+//          </tr>`;
+    
+//     // Loop to access all rows 
+//     for (let r of data.list) {
+//         tab += `<tr> 
+//     <td>${r.name} </td>
+//     <td>${r.office}</td>
+//     <td>${r.position}</td> 
+//     <td>${r.salary}</td>          
+// </tr>`;
+//     }
+//     // Setting innerHTML as tab variable
+//     document.getElementById("employees").innerHTML = tab;
+// }
+ 
+</script>
+
+
+</div>
+<%- include('./fooder.ejs') %>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>

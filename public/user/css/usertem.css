@@ -1,0 +1,93 @@
+.search-form {
+  background-color: var(--info);
+}
+
+#products {
+  margin-bottom: 1.2rem;
+}
+
+.card {
+  margin: 0.75rem 0;
+}
+
+.card-body,
+.card-footer {
+  padding: 0.75rem 1rem;
+}
+
+.tab-text {
+  padding: 1rem 2rem;
+}
+
+.item {
+  border-radius: 0px !important;
+  height: 200px;
+}
+
+#myTab .nav-item {
+  background-color: #ccc;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#myTab .nav-item a {
+  color: #666;
+}
+
+#myTab li a.active {
+  background-color: var(--info);
+  color: #ffffff;
+}
+
+.nav-tabs,
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 0;
+}
+
+.tab-content,
+footer {
+  background-color: var(--info);
+}
+
+
+.productcard:hover{
+  border: 1px solid lightgray;
+  background: #D7FFCE !important;
+}
+.addcardicon{
+  cursor: pointer;
+}
+
+
+.onpr{
+  height: 100vh;
+}
+
+
+.onprimg{
+  width:22%; 
+  height:15%;
+}
+
+.onprimg:hover{
+  width:82%; 
+  height:45%;
+  top: -20px;
+  left: 90%;
+  z-index: 2;
+  position: absolute;
+  border: 1px solid #cce402;
+}
+
+.useraddcardbody{
+  height: 100vh;
+}
+
+
+#quantity{
+  width: 40px;
+  background: white;
+  border: 1px solid white;
+}
+ 

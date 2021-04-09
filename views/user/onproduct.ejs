@@ -19,7 +19,7 @@
 <div class="container-fluid">
  <div class="row onpr">
     <div class="col-md-5">          
-           <img src="/productimage/<%= data.productlimg %>" style="width:100%; height:40%"><br/><br/>
+           <img src="/productimage/<%= data.productlimg %>" style="width:60%; height:50%"><br/><br/>
            <img src="/productimage/<%= data.productlimg %>" class="onprimg">           
            <img src="/productimage/<%= data.productmimg %>" class="onprimg">
            <img src="/productimage/<%= data.productsimg %>" class="onprimg">
@@ -28,25 +28,29 @@
 
     <div class="col-md-7">
         <div class=""><h3><%= data.productname %></h3></div>
-
+      <form action="/addtocardpost" method="post">
         <div class="" style="display: flex; font-size: 20px">
           <span>Price : <%= data.productprice %></span>        
-            <span>&nbsp;  &nbsp; Total Price :</span> &nbsp;  &nbsp; 
-          <div class=""><span id="total"><%= data.productprice %></span></div>
+          <span>&nbsp;  &nbsp; Total Price :</span> &nbsp;  &nbsp; 
+          <span id="total"><%= data.productprice %></span>
         </div>
 
         <div class="" style="display: flex; font-size: 20px">          
-        <span>Quantity :&nbsp;  &nbsp;  </span>
-        <input type="number" value="1" id="quantity" name="" onchange="myFunction(this)" 
+          <span> Quantity :&nbsp;  &nbsp; </span>
+          <input type="number" value="1" id="quantity" name="quantity" onchange="myFunction(this)" 
             price="<%= data.productprice %>">
+            <input type="hidden" id="custId" name="custId" value="<%= data._id %>">
+            <input type="hidden" id="totale" value="<%= data.productprice %>" name="totalprice">
         </div>
 
         <div class="text-info description"><%= data.productdescription %></div>
-        <button class="btn btn-lg" style="background: #2abbe8; margin-top: 20px">Buy Now</button>
-        <button class="btn btn-lg" style="background: #f57224; margin-top: 20px" onclick="addcard(this)"
-        tid="<%= data._id %>" productimage ="<%= data.productlimg %>" price="<%= data.productprice %>" productname="<%= data.productname %>">
-          Add to Card
+        <button class="btn btn-lg text-warning" style="background: #2abbe8; margin-top: 20px">
+          Buy Now
         </button>
+          
+        <input type="submit" class="btn btn-lg text-light" style="background: 
+          #f57224; margin-top: 20px" value="Add to Card">
+      </form>
     </div>
 </div>
 
@@ -66,25 +70,9 @@
     const quantity = document.getElementById("quantity");    
     const price = e.getAttribute("price");        
     document.getElementById("total").innerHTML = price * quantity.value;
-
+    document.getElementById("totale").value = price * quantity.value;
 }
-
-function addcard(e){
-  const id = e.getAttribute("tid");
-  const productimage = e.getAttribute("productimage");
-  const productname = e.getAttribute("productname");
-  const price = e.getAttribute("price");
-  const quantity = document.getElementById("quantity").value;
-  const total = document.getElementById("total").innerHTML
- const image = JSON.stringify(productimage);
  
-
-  productorder = JSON.parse(localStorage.getItem("productorder") || "[]");
-  productorder.push({id:id, image:image, productname:productname, price:price, quantity:quantity, total:total});
-  localStorage.setItem("productorder", JSON.stringify(productorder));
-  
-  window.history.back();
-}
 </script>
 
 

@@ -29,7 +29,9 @@
               <thead>
                 <tr>
                   <th scope="col">SL</th>
-                  <th scope="col">Catagory Type</th>                                    
+                  <th scope="col">Product Name</th>                                    
+                  <th scope="col">Product Image</th>                                    
+                  <th scope="col">Action</th>                                    
                 </tr>
               </thead>              
                 <% prodct.map((data, index)=> {%>
@@ -38,6 +40,9 @@
                   <td><%= data.catagorytype %></td>                  
                   <td>
                     <img src="/productimage/<%= data.productlimg %>" style="width:40px; height:40px">
+                  </td>
+                  <td>
+                    <a class="btn btn-danger" href="#">Delete</a>
                   </td>
                 </tr>
                 <% }) %>

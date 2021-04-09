@@ -46,3 +46,9 @@
   height: 230px;
 
 }
+
+.tablescroller{
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 380px;
+}

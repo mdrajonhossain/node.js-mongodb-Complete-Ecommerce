@@ -2,6 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="utf-8">
+  <meta http-equiv=”refresh” content="5" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MR Ecommerce Site</title>
@@ -21,19 +22,32 @@
   <div class="row">
      <div class="col-md-3"></div>
      <div class="col-md-9">
-       <table class="table" id="img">
-        <thead class="thead-dark">
-          <tr>            
-            <th scope="col">Product Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total Price</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-      </table>
+     <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Product Image</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Qantity</th>
+      <th scope="col">Price</th>      
+      <th scope="col">Action</th>      
+    </tr>
+  </thead>
+  <tbody>
+
+<% data.map((dax, index)=> {%>
+    <tr>
+      <th><img src="/productimage/<%= dax.productlimg %>" width="50" height="45"></th>
+      <td><%= dax.productname %></td>
+      <td><%= dax.productquantity %></td>      
+      <td><%= dax.totalprice %></td>      
+      <td><a class="btn btn-danger" href="/addtocarddele/<%= dax._id%>">Delete</a></td>      
+    </tr>
+<% })%>
+  
+
+  </tbody>
+</table>
  
- <div id="name"></div>
 
 
 
@@ -48,52 +62,12 @@
   
  
 <script>
-  $(document).ready(function(){
-      JSON.parse(localStorage.getItem("productorder")).map((dta, index)=> {    
-        $("#img").append('<tr><td>'+dta.productname+'</td><td>'+dta.price+'</td><td>'+dta.quantity+'</td><td>'+dta.total+'</td><td><button class="btn btn-danger delte" ide='+index+' onclick="dit()">Delete</button></td></tr>');
-      })  
-  }); 
-
 function addcared(){
   alert("sadfasdf");
 }
 
-function dit(){
-  alert("asdfsfd");
-}
-
-const productorder = JSON.parse(localStorage.getItem("productorder") || "[]");
-
-
-const data = productorder.map(dta => {
-  return (dta.productname, dta.price)
-})
-
-document.getElementById("name").innerHTML = data;
-console.log(productorder);
-
-
-// function show(data) {
-//     let tab = 
-//         `<tr>
-//           <th>Name</th>
-//           <th>Office</th>
-//           <th>Position</th>
-//           <th>Salary</th>
-//          </tr>`;
-    
-//     // Loop to access all rows 
-//     for (let r of data.list) {
-//         tab += `<tr> 
-//     <td>${r.name} </td>
-//     <td>${r.office}</td>
-//     <td>${r.position}</td> 
-//     <td>${r.salary}</td>          
-// </tr>`;
-//     }
-//     // Setting innerHTML as tab variable
-//     document.getElementById("employees").innerHTML = tab;
-// }
+ 
+  
  
 </script>
 

@@ -48,10 +48,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://rajondemo:NhV17jjarIbpk2v4@cluster0.s63fi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/test', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
-
-    
     
 	.then(data=>{
 		console.log("connecting successfully");
